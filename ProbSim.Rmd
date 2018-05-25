@@ -1,6 +1,8 @@
 ---
 title: "Probability Exercises in R"
-output: html_notebook
+output:
+  html_document:
+    df_print: paged
 ---
 
 The idea of random sampling is very useful in statistics and probability.
@@ -108,8 +110,8 @@ First, take a look using the table function:
 ```{r}
 ###################################
 # your code here, copy from above and edit the data argument
-
-
+table(sim10k)
+```
 
 ###################################
 ```
@@ -119,7 +121,9 @@ Now create the histogram from the table using the `plot` function
 ```{r}
 ###################################
 # your code here, copy from above and edit the data argument
-
+```{r}
+plot(table(sim10k), xlab = 'Sum', ylab = 'Frequency', main = '10k Rolls of 2 Fair Dice')
+```
 
 
 ###################################

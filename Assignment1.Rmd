@@ -1,8 +1,24 @@
 ---
 title: "Assignment 1"
-author: 'Your name'
+author: 'Anastasia Vorontsova'
 output: html_document
 ---
 
+## Anastasia Vorontsova
+
+! (/downloads/img_5540.jpg)
+
+## Professional Background
+
+* Financial Analyst, Revenue Management - Royal Caribben Cruises Ltd. - 4/2018-Present
+* Senior Hedge Fund Accountant - ALPS, former Kaufman Rossin Fund Services - 2/2017-4/2018
+* Hedge Fund Accountant - ALPS, former Kaufman Rossin Fund Services  - 2/2016-2/2017
+* Financial Analyst Intern - Diageo - 2015
+
+## Interests
+
+* Yoga, Meditation
+ 
+# #I'm learning data science!
 
 

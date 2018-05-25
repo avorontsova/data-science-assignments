@@ -1,0 +1,25 @@
+---
+output: html_document
+---
+## Anastasia Vorontsova
+
+### Professional Background
+
++ Financial Analyst, Revenue Management - Royal Caribben Cruises Ltd. - 4/2018-Present
++ Senior Hedge Fund Accountant - ALPS Alternative Investment Services - 2/2017-4/2018
++ Hedge Fund Accountant - ALPS Alternative Investment Services  - 2/2016-2/2017
++ Financial Analyst Intern - Diageo - 2015
+
+### Interests
+
++ Yoga, Meditation
+ 
+ ![](IMG.png)
+ 
+```{r}
+ #I'm learning data science!
+```
+
+
+
+
