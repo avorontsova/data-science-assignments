@@ -1,0 +1,164 @@
+---
+title: "Descriptive Statistics Assignment"
+author: "Your name"
+output:
+  html_notebook:
+    theme: lumen
+  html_document:
+    df_print: paged
+---
+
+#Your turn!
+We went through some exploratory analysis on our own, which will help us answer some questions in the data, and will actually give us more questions! Now pick another dataset from `mlbench` and create a markdown notebook of you exploring the data, following the same 5 steps.
+
+1. Take a glimpse at your data
+2. Look at the dimensions of your data
+3. Look at the class types of your data
+4. Distribution of your data
+5. Correlations in your data
+---
+
+Load mlbench and tidyverse
+```{r}
+library(Hmisc)
+```
+The package `mlbench` has a bunch of datasets that you can use to explore and build machine learning models on. 
+
+Select the dataset you'll work with and load it using `data()`
+```{r}
+data("BostonHousing2")
+```
+
+> Since we aren't familiar with the variables in this data, we should probably keep the explanation of these variables handy
+
+## Explore!
+1. **Take a glimpse of your data.**
+```{r}
+head(BostonHousing2)
+
+
+```
+```{r}
+tail(BostonHousing2)
+
+```
+2. **Look at the dimensions of your data.**
+```{r}
+dim(BostonHousing2)
+```   
+    
+3. **Look at the class types of each variable in your data.**
+```{r}
+
+str(BostonHousing2)
+
+```
+```{r}
+
+sapply(BostonHousing2, class)
+
+```
+
+
+4. **Distribution of your data**
+```{r}
+summary(BostonHousing2)
+```
+```{r}
+
+describe(BostonHousing2)
+
+```
+```{r}
+
+hist(BostonHousing2$cmedv)
+
+```
+```{r}
+
+hist(BostonHousing2$cmedv, 20)
+
+```
+
+```{r}
+
+boxplot(BostonHousing2$cmedv)
+
+```
+```{r}
+bh_explore <- subset.data.frame(BostonHousing2, select = c(crim, zn, indus, rm, age, dis, ptratio, b, cmedv))
+
+```
+5. **Correlations in your data**
+
+```{r}
+#try the pairs() function or the cor() function from the corrplot package.  
+pairs(bh_explore)
+```
+```{r}
+
+library(corrplot)
+
+```
+```{r}
+
+correlations <- cor(bh_explore)
+corrplot(correlations, method = "circle")
+
+```
+>Explain these correlations is simple terms based on what you know that the variables represent.
+
+```{r}
+#PIPING
+bh_explore %>% cor() %>%
+  corrplot(method - "circle")
+
+```
+
+
+```{r}
+
+plot(x=BostonHousing2$cmedv, y=BostonHousing2$rm)
+
+```
+```{r}
+data(Zoo)
+head(Zoo)
+```
+```{r}
+dim(Zoo)
+```
+```{r}
+summary(Zoo)
+```
+
+```{r}
+mean(Zoo$feathers)
+```
+```{r}
+table(Zoo$feathers)
+```
+
+```{r}
+data(Glass)
+summary(Glass)
+```
+```{r}
+head(Glass)
+```
+```{r}
+Glass[,-10]
+```
+```{r}
+Glass2 <- subset.data.frame(Glass, select = c(RI, Na, Mg, Al, Si, K, Ca, Ba, Fe))
+correlations <- cor(Glass2)
+corrplot(correlations, method = "circle")
+```
+
+
+
+
+
+
+
+

@@ -6,7 +6,7 @@ output: html_document
 
 ## Anastasia Vorontsova
 
-! (/downloads/img_5540.jpg)
+! (img_5540.jpg)
 
 ## Professional Background
 

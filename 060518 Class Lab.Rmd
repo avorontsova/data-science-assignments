@@ -1,0 +1,141 @@
+---
+title: "060518 Lab"
+author: "Anastasia"
+date: "5 Jun 2018"
+output: html_document
+---
+
+
+```{r}
+library(tidyverse)
+```
+```{r}
+read_csv2("cars.csv")
+```
+```{r}
+#write in the csv file
+write_cars <- as.data.frame(mtcars)
+write_csv(write_cars, path = "cars.csv")
+```
+```{r}
+install.packages("readxl")
+library(readxl)
+```
+```{r}
+#find examples
+readxl_example()
+```
+```{r}
+#find the directory
+readxl_example("deaths.xls")
+```
+```{r}
+#explore the function
+?read_excel
+```
+```{r}
+#Read the file - XL file
+xl_example <- readxl_example("deaths.xls")
+xls_example <- readxl_example("deaths.xlsx")
+read_excel(xl_example)
+```
+```{r}
+#XLS file
+read_excel(xls_example)
+```
+```{r}
+#Using the arguments to skipp the rows we don't need
+read_excel(xls_example, skip = 4)
+```
+```{r}
+#Find out the names of the sheets in the Excel file
+excel_sheets(xl_example)
+```
+
+```{r}
+#opening library to write to excel
+library(writexl)
+```
+```{r}
+#Write to excel
+write_xlsx(mtcars, path='cars.xlsx')
+```
+
+#Exercises:
+1. What function would you use to read a file where fields were separated with |?
+   -> read_delim("x|b|y", delim = "|")
+
+2. Apart from file, skip, and comment, what other arguments do read_csv() and read_tsv() have in common?
+   -> all of them are same: col_names, col_types, locale, na, quoted_na, quote, trim_ws, n_max, guess_max, progress
+  
+3. What are the most important arguments to read_fwf()?
+   ->col_positions
+  
+```{r}
+# Miami Dade data analysis
+# Warming up -> Assign the file to a variable
+# Important - upload packages every time we restart R
+library(tidyverse)
+
+# Assigning read_csv to a variable so it's easier to process
+
+service_data <- read_csv("311_Service_Requests_-_Miami-Dade_County.csv") 
+```
+```{r}
+# Loading a package for cleaning data
+
+library(janitor)
+```
+```{r}
+colnames(service_data) #BEFORE
+```
+
+
+```{r} 
+#Super-useful janitor function - cleaning columns - Renames columns to have the names we like and overrides them in the file
+
+service_data <- clean_names(service_data)
+colnames(service_data) 
+```
+```{r}
+# How many rows and columns are in this data? -> 657544
+
+dim(service_data)
+```
+
+```{r}
+# How many cities are represented in the data? -> 36
+
+describe(service_data$city)
+```
+
+```{r}
+# What is the most frequently occuring issue type? Hint: Use the table function. -> PET ACCOUNT UPDATE
+
+table(service_data$issue_type)
+```
+```{r}
+# Creating a subset for the data - now we have it in the environment files. If we open it and sort by the values, we could find the most occuring one. It looks nice and clean
+
+service_data_subset <- as.data.frame(table(service_data$issue_type))
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
